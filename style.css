@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sansita Swashed', cursive;
+  color: #000;
+}
+:root {
+  --themeColour : blueviolet ;
+}
+body {
+  background: linear-gradient(90deg,#111,#222,#333);
+}
+.first,.second,.third,.fourth,.fifth{
+  margin: 15px 0 5px 0;
+}
+.first {
+  margin-top: 0;
+}
+
+
+.smallp {
+  font-size: 9px;
+}
+.bigp {
+  font-size: 19px;
+}
+.time {
+  font-size: 14px;
+  text-align: center;
+}
+.bigTemp {
+  font-size: 45px;
+  
+}
+.smallTemp,.tempsText2,.temps2{
+  font-size: 9px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.buttons {
+  width: 100%;
+  position: sticky;
+  height: 45px;
+  top: 0;
+  left: 0;
+ box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+}
+.bodyTab{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+   background:white;
+   transition: 0.5s ease-in-out;
+   outline: none;
+   user-select: none;
+   -moz-user-select: none;
+   border:none;
+  cursor: pointer;
+ color: #fff;  
+}
+.tab-image {
+  width: 28px;
+  height: 29px;
+  pointer-events: none;
+}
+hr {
+ background: #000;
+ outline: none;
+ color: black;
+ height: 2px;
+ border: 1px solid transparent;
+ border-radius: 2px;
+}
+.body {
+  display: none;
+  
+}
+.active {
+  background: var(--themeColour);
+  transform: scaleY(1.1);
+  transition: 0.5s ease-in-out;
+}
+#main{
+  display: block;
+}
+.weath {
+  border-radius: 4px 4px 0 0;
+  background: var(--themeColour);
+ text-align: center;
+  margin: 0 1px;
+}
+.radarBody, .mainBody,.searchBody1 {
+  background: linear-gradient(107.18deg, rgba(255, 255, 255, 0.5) 1.84%, rgba(255, 255, 255, 0.3) 100%);
+  width: 98vw;
+}
+.date1,.date2,.date3,.date4,.date5 {
+  font-size: 26px;
+}
+
+.demoText, .demoImgCon {
+  text-align: center;
+}
+.demoText1,.searchTemp1{
+  font-size: 45px;
+}
+.demoText2,.searchTemp2  {
+  font-size: 12px;
+}
+.humidText,.temp-maxText,.temp-minText,.groundText,.seaText,.pressureText,.speedText,.degText ,.searchHumid,.searchPressure,.searchMax,.searchGround,.searchSea,.searchMin,.searchDeg,.searchSpeed{
+  font-size: 45px;
+}
+.pressureText small, .seaText small, .groundText small, .speedText small,.searchGround small, .searchPressure small, .searchSea small,.searchSpeed small {
+  font-size:11px;
+  margin-left: -2px;
+  
+}
+.timeText {
+  text-align:  center;
+  font-size: 15px;
+}
+.tempsText1,.temps1 {
+  font-size: 19px;
+}
+.demoImg {
+  width: 130px;
+  height: 130px;
+
+}
+.demoImgDes, .descr{
+  font-size: 26px;
+  text-transform: capitalize;
+}
+.names {
+  font-size: 50px;
+  padding: 0 28px;
+}
+#searchInput {
+  width: 90%;
+ padding: 15px;
+  
+font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+  background: none;
+  border: none;
+  caret-color: blueviolet;
+  color: black;
+}
+
+.space2,.space1,.space3,.space4,.space5 {
+  height: 15px;
+}
+.searchBody { 
+  width: 92%;
+  height: 40px;
+border-radius: 6px;
+background: white;
+display: flex;
+justify-content: center;
+margin: 0 auto;
+}
+.searchSub {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+ 
+}
+.open {
+  width: 85vw;
+  max-width: 500px;
+  height: 70vh;
+  max-height: 400px;
+  min-height: 300px;
+  background: var(--themeColour);
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+display: none;
+}
+.open input {
+  width: 85%;
+  height: 45px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 1px 10px;
+  display: block;
+  margin: 45px auto;
+  font-size: 24px;
+}
+.open button {
+  padding: 15px 40px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  outline: none;
+  background: white;
+  display: block;
+  margin: 65px auto;
+  transition: 0.5s;
+}
+.open button:hover {
+  background: #333;
+  color: #fff;
+}
+.closeB {
+  text-align: right;
+  padding: 10px 25px;
+  font-size: 50px;
+}
+
+
+.demoCon {
+ width: 99%;
+ height: auto;
+ min-height: 100vh;
+ padding: 10px 0 0 0;
+}
+.demo, .firstCol {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+margin: 4px auto;
+  
+  margin-bottom: 25px;
+}
+.nowWeathe,.secondCol {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8,12.1vw);
+  align-items: end;
+ 
+}
+.tempt, .windy,.sixthCol,.thirdCol {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.tempt div,.thirdCol div {
+  width: 45%;
+  padding: 20px 2px;
+  border-radius: 7px;
+  
+}
+.humid, .fourthCol {
+  width: 100%;
+  text-align: center;
+  margin: 18px auto;
+  margin-top: 2px;
+}
+.press,.fifthCol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.windy, .sixthCol {
+  padding: 20px 2px;
+}
+.demoText {
+  display:flex;
+ justify-content: center;
+ flex-direction: column;
+}
+ 
+
+.searchBody1 {
+  height: auto;
+  padding: 10px 0;
+  min-height: 590px;
+  
+}
+
+.anim,.anim111 {
+
+ height: 100px;
+ width: 100px;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+}
+.anim1,.anim2,.anim3,.anim4,.anim11,.anim21,.anim31,.anim41 {
+  width: 5px;
+  height: 100px;
+  background-color: black;
+}
+.anim1,.anim11 {
+  position: absolute;
+  animation: loader1 1s infinite;
+  -o-animation: loader1 1s infinite;
+}
+.anim2,.anim21 {
+ position: absolute;
+ height: 5px;
+  width: 100px;
+  -o-animation: loader2 1s infinite;
+  animation: loader2 1s infinite;
+}
+.anim3,.anim31 {
+ position: absolute;
+ height: 5px;
+  width: 100px;
+ bottom: 0;
+ -o-animation: loader3 1s infinite;
+ animation: loader3 1s infinite;
+}
+.anim4,.anim41 {
+  position: absolute;
+ bottom: 100px;
+  right: 0;
+  animation: loader4 1s infinite;
+  -o-animation: loader4 1s infinite;
+}
+@keyframes loader1 {
+  from{
+   top:-100px;
+  }
+  to {
+   top:0px;
+  }
+}
+@keyframes loader2 {
+  from{
+   left:-100px;
+  }
+  to {
+   left:0px;
+  }
+}
+
+@keyframes loader3 {
+  from{
+   right:-100px;
+  }
+  to {
+   right:0px;
+  }
+}
+@keyframes loader4 {
+  from{
+   bottom:-100px;
+  }
+  to {
+   bottom:0px;
+  }
+}
+@-o-keyframes loader1 {
+  from{
+   top:-100px;
+  }
+  to {
+   top:0px;
+  }
+}
+@-o-keyframes loader2 {
+  from{
+   left:-100px;
+  }
+  to {
+   left:0px;
+  }
+}
+
+@-o-keyframes loader3 {
+  from{
+   right:-100px;
+  }
+  to {
+   right:0px;
+  }
+}
+@-o-keyframes loader4 {
+  from{
+   bottom:-100px;
+  }
+  to {
+   bottom:0px;
+  }
+}
+.anim {
+  display: none;
+  position: fixed;
+}
+@media screen and (min-width:750px) {
+  .radarBody, .mainBody,.searchBody1 {
+  background: linear-gradient(107.18deg, rgba(255, 255, 255, 0.5) 1.84%, rgba(255, 255, 255, 0.3) 100%);
+  width: 85vw;
+}
+.humidText,.temp-maxText,.temp-minText,.groundText,.seaText,.pressureText,.speedText,.degText ,.searchHumid,.searchPressure,.searchMax,.searchGround,.searchSea,.searchMin,.searchDeg,.searchSpeed{
+  font-size: 48px;
+}
+.pressureText small, .seaText small, .groundText small, .speedText small,.searchGround small, .searchPressure small, .searchSea small,.searchSpeed small {
+  font-size:14px;
+  margin-left: -2px;
+  
+}
+.timeText {
+  text-align:  center;
+  font-size: 16px;
+}
+.tempsText1,.temps1 {
+  font-size: 30px;
+}
+.demoText1,.searchTemp1{
+  font-size: 65px;
+}
+.demoText2,.searchTemp2  {
+  font-size: 13px;
+}
+.names {
+  font-size: 60px;
+  padding: 0 28px;
+}
+}

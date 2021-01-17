@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ <script src="https://kit.fontawesome.com/6348bc0d65.js" crossorigin="anonymous"></script>
+  <title>CanWel</title>
+</head>
+
+<body>
+
+<div class="overall">
+   <div class="buttons">
+    <button class="bodyTab active" onclick="openBody(event,'main')"><img class="tab-image" src="home.svg" alt="" /></button>
+    <hr />
+    <button class="bodyTab" onclick="openBody(event,'radar')"><img class="tab-image" src="radar.svg" alt="" /></button>
+    <hr />
+    <button class="bodyTab" onclick="openBody(event,'search')"><img class="tab-image" src="search.svg" alt="" /></button>
+  </div>
+  
+  <div class="body" id="main">
+     <div class="anim111">
+  <div class="anim11">
+    
+  </div>
+ <div class="anim21">
+   
+ </div>
+  <div class="anim31">
+   
+ </div>
+  <div class="anim41">
+   
+ </div>
+</div>
+    <center>
+    <div class="mainBody">
+      
+    <div class="demoCon">
+     <div class=""> <hr>
+       <p class="names"></p><hr>
+     </div> 
+   <div class="demo">
+        <div class="demoImgCon">  <img class="demoImg" src="" alt="weather icon" />
+          <p class="demoImgDes"></p></div>
+          <div class="demoText"><p class="demoText1"> </p>
+          <p class="demoText2"> </p></div>
+   </div>
+    
+      <div class="nowWeathe">
+  
+  </div>
+  <div class="tempt">
+        <div class="temp-max" >
+            <p class="temp-maxText"></p>
+            <p>Max Temperature</p></div>
+<div class="temp-min"><p class="temp-minText"></p>
+            <p>Min Temperature</p> </div>
+  </div>
+
+   <div class="humid">
+        <p class="humidText"></p>
+          <p>Humidity</p>
+  </div>
+  
+  
+    <div class="press">
+     <div class="ground-lev">               <p class="groundText"></p>
+              <p>Ground Level</p></div>
+   <div class="pressure">            <p class="pressureText"> </p>
+            <p>Pressure</p></div>
+  <div class="sea-lev" >
+     <p class="seaText"></p>
+              <p>Sea Level</p>
+  </div>  
+    </div>
+
+<div class="windy">
+    <div class="wind" > <p class="degText"></p>
+            <p>Wind Degree</p></div>
+    <div class="windSpeed" ><p class="speedText"></p>
+            <p> Wind Speed</p></div>
+</div>    
+</div>
+       
+    </div>
+
+ 
+     </div>
+  
+
+</center>
+      <!--<div class="date">
+  <p>30th November 2020</p>
+</div> -->
+    </div>
+  
+  <div class="body" id="radar">
+    <center>
+    <div class="radarBody">
+      
+    
+   <table class="first" border="0">
+    <tr>
+     <th class="date1" colspan="8"></th>
+    </tr>
+      <tr class="frc1">
+        
+      </tr>
+   
+ <tr >
+       <td class="space2" colspan="8"></td> 
+      </tr>
+  <tr class="frc2">
+    
+  </tr>
+    </table>
+
+<div style="padding: 7px 20px;"><hr style="width:100%;"  /></div>
+   <table class="second" border="0">
+    <tr>
+     <th class="date2" colspan="8"></th>
+    </tr>
+      <tr class="frc21">
+        
+      </tr>
+      <tr >
+       <td class="space2" colspan="8"></td> 
+      </tr>
+  <tr class="frc22">
+    
+  </tr>
+    </table>
+    <div style="padding: 7px 20px;"><hr style="width:100%;"  /></div>
+  <table class="third" border="0">
+    <tr>
+      <th class="date3" colspan="8"></th>
+    </tr>
+      <tr class="frc31">
+        
+      </tr>
+  <tr>
+    <td class="space2" colspan="8"></td>
+  </tr>
+  <tr class="frc32">
+    
+  </tr>
+    </table>
+    <div style="padding: 7px 20px;"><hr style="width:100%;"  /></div>
+   <table class="fourth" border="0">
+   <tr>
+     <th class="date4" colspan="8"></th>
+   </tr>
+      <tr class="frc41">
+        
+      </tr>
+  <tr>
+    <td class="space2" colspan="8"></td>
+  </tr>
+  <tr class="frc42">
+    
+  </tr>
+    </table>
+    <div style="padding: 7px 20px;"><hr style="width:100%;"  /></div>
+     <table class="fifth" border="0">
+     <tr>
+       <th colspan="8" class="date5"></th>
+     </tr>
+      <tr class="frc51">
+        
+      </tr>
+ <tr>
+   <td class="space2" colspan="8"></td>
+ </tr>
+  <tr class="frc52">
+    
+  </tr>
+    </table>
+    
+    </div>
+    </center>
+  </div>
+  <div class="body" id="search">
+     <div class="anim">
+  <div class="anim1">
+    
+  </div>
+ <div class="anim2">
+   
+ </div>
+  <div class="anim3">
+   
+ </div>
+  <div class="anim4">
+   
+ </div>
+</div>
+    <center>
+    <div class="searchBody1">
+      
+    
+    <div class="searchBody">
+      <input type="search" name="s" id="searchInput" value="" placeholder="what city ?" />
+      <button class="searchSub fas fa-search"></button>
+    </div>
+    
+    <div class="searchResult">
+      <div class="firstCol">
+        
+      </div>
+      <div class="secondCol">
+        
+      </div>
+      <div class="thirdCol">
+        
+      </div>
+      <div class="fourthCol">
+        
+      </div>
+      <div class="fifthCol">
+        
+      </div>
+      <div class="sixthCol">
+        
+      </div>
+    </div>
+  
+    </div>
+   </center>
+  </div>
+  
+  
+  
+ 
+      </div>
+        <center>
+  <div class="open">
+    <p class="closeB"><i class="fas fa-window-close"></i></p>
+    <input type="text" name="" id="city" value="" placeholder="Enter your current city" />
+    <button class="localButton"> OK</button>
+    
+  </div>
+  </center>
+ 
+  <script src="main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
