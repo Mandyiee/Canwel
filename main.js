@@ -49,10 +49,7 @@ let windDeg = document.querySelector('.degText')
 class GetStat {
   async begin() {
     
- let result = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`,{
-mode: 'cors',
-credentials: 'include'
-});
+ let result = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`);
    console.log(result)
     let data = await result.data;
     console.log(data)
