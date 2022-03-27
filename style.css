@@ -1,31 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Sansita Swashed', cursive;
+ font-family: 'Lato', sans-serif;
   color: #000;
+  background-color: var(--lightMode);
 }
 :root {
-  --themeColour : blueviolet ;
+  --themeColour : rgb(10,10,10);
+  --darkMode: rgb(10,10,10);
+  --lightMode: white;
 }
 body {
-  background: linear-gradient(90deg,#111,#222,#333);
+  background: var(--lightMode);
+
 }
+table {
+  background: var(--lightMode);
+}
+
 .first,.second,.third,.fourth,.fifth{
   margin: 15px 0 5px 0;
 }
 .first {
   margin-top: 0;
 }
-
-
 .smallp {
-  font-size: 9px;
+  font-size: 10px;
 }
 .bigp {
-  font-size: 19px;
+  font-size: 18px;
 }
 .time {
   font-size: 14px;
@@ -36,8 +41,9 @@ body {
   
 }
 .smallTemp,.tempsText2,.temps2{
-  font-size: 9px;
+  font-size: 11px;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -67,52 +73,62 @@ table {
  color: #fff;  
 }
 .tab-image {
-  width: 28px;
-  height: 29px;
-  pointer-events: none;
+  width: 25px;
+  height: 25px;
+  
 }
 hr {
- background: #000;
+ background: black;
  outline: none;
- color: black;
- height: 2px;
- border: 1px solid transparent;
- border-radius: 2px;
+ 
 }
 .body {
   display: none;
   
 }
 .active {
-  background: var(--themeColour);
+  
   transform: scaleY(1.1);
   transition: 0.5s ease-in-out;
+  background: var(--darkMode);
+}
+.active img {
+  filter: drop-shadow(2px 2px 0px #fff);
 }
 #main{
   display: block;
 }
 .weath {
   border-radius: 4px 4px 0 0;
-  background: var(--themeColour);
+  background: transparent;
  text-align: center;
   margin: 0 1px;
+  width: 92%;
+box-shadow: 1px -1px 0px var(--themeColour) ;
 }
 .radarBody, .mainBody,.searchBody1 {
-  background: linear-gradient(107.18deg, rgba(255, 255, 255, 0.5) 1.84%, rgba(255, 255, 255, 0.3) 100%);
+  background: var(--lightMode);
   width: 98vw;
+  margin: 0 auto;
 }
 .date1,.date2,.date3,.date4,.date5 {
-  font-size: 26px;
+  font-size: 27px;
+  margin: 4px auto;
 }
-
+.mainbody {
+  width: 100vw;
+}
 .demoText, .demoImgCon {
   text-align: center;
 }
 .demoText1,.searchTemp1{
-  font-size: 45px;
+  font-size: 4.4rem;
+   text-align: center;
+   padding: 7px 3px;
 }
 .demoText2,.searchTemp2  {
-  font-size: 12px;
+  font-size: .3rem;
+  padding: 2px 5px;
 }
 .humidText,.temp-maxText,.temp-minText,.groundText,.seaText,.pressureText,.speedText,.degText ,.searchHumid,.searchPressure,.searchMax,.searchGround,.searchSea,.searchMin,.searchDeg,.searchSpeed{
   font-size: 45px;
@@ -127,33 +143,41 @@ hr {
   font-size: 15px;
 }
 .tempsText1,.temps1 {
-  font-size: 19px;
+  font-size: 50px;
 }
-.demoImg {
-  width: 130px;
-  height: 130px;
 
-}
 .demoImgDes, .descr{
   font-size: 26px;
   text-transform: capitalize;
+  padding: 1rem;
 }
 .names {
   font-size: 50px;
   padding: 0 28px;
+  text-align: center;
+  margin: 10px auto;
 }
 #searchInput {
   width: 90%;
  padding: 15px;
-  
 font-size: 20px;
   border-radius: 5px;
   outline: none;
   background: none;
   border: none;
-  caret-color: blueviolet;
+  caret-color: black;
   color: black;
+  
 }
+ 
+.searchResult tr td {
+  text-align: center;
+}
+.searchBody1 {
+  padding: 10px 0;
+  min-height: 590px;
+}
+
 
 .space2,.space1,.space3,.space4,.space5 {
   height: 15px;
@@ -165,7 +189,8 @@ border-radius: 6px;
 background: white;
 display: flex;
 justify-content: center;
-margin: 0 auto;
+margin: 10px auto;
+box-shadow: 1px 1px 0px var(--themeColour) ;
 }
 .searchSub {
   background-color: transparent;
@@ -178,9 +203,9 @@ margin: 0 auto;
   width: 85vw;
   max-width: 500px;
   height: 70vh;
-  max-height: 400px;
-  min-height: 300px;
-  background: var(--themeColour);
+  max-height: 500px;
+  min-height: 400px;
+  background: white;
   border-radius: 13px;
   display: flex;
   flex-direction: column;
@@ -191,6 +216,8 @@ top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 display: none;
+color: #fff !important;
+box-shadow: 1px 1px 0px var(--themeColour) ;
 }
 .open input {
   width: 85%;
@@ -202,6 +229,7 @@ display: none;
   display: block;
   margin: 45px auto;
   font-size: 24px;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
 }
 .open button {
   padding: 15px 40px;
@@ -217,190 +245,119 @@ display: none;
   background: #333;
   color: #fff;
 }
+.change {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  padding: 5px;
+}
 .closeB {
   text-align: right;
   padding: 10px 25px;
   font-size: 50px;
 }
-
-
-.demoCon {
- width: 99%;
- height: auto;
- min-height: 100vh;
- padding: 10px 0 0 0;
-}
-.demo, .firstCol {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-margin: 4px auto;
+.img-text {
+  text-transform: capitalize;
   
-  margin-bottom: 25px;
 }
-.nowWeathe,.secondCol {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(8,12.1vw);
-  align-items: end;
- 
+.demo {
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
+  height: 20rem;
+  background: white;
+  border-radius: 5px;
+  padding: 8px;
 }
-.tempt, .windy,.sixthCol,.thirdCol {
+
+
+.slides {
+  width: 200px;
+  height: 92%;
+  background: var(--lightMode);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
+  margin: 10px 15px;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
+  border-radius: 5px;
 }
-.tempt div,.thirdCol div {
-  width: 45%;
-  padding: 20px 2px;
-  border-radius: 7px;
-  
-}
-.humid, .fourthCol {
+.slides-wrapper {
   width: 100%;
-  text-align: center;
-  margin: 18px auto;
-  margin-top: 2px;
+  height: 15rem;
+  background: white;
+  margin: 17px auto;
 }
-.press,.fifthCol {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.windy, .sixthCol {
-  padding: 20px 2px;
-}
-.demoText {
-  display:flex;
- justify-content: center;
- flex-direction: column;
-}
- 
 
-.searchBody1 {
-  height: auto;
-  padding: 10px 0;
-  min-height: 590px;
+.slides-con {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.demoImg {
+  
+  height:50% ;
+  width: 100%;
+}
+.demo {
+  display: flex;
+  flex-direction: row;
+  background: var(--lightMode);
+  justify-content: space-evenly;
+}
+.demo-first {
+  align-self: flex-end;
   
 }
-
-.anim,.anim111 {
-
- height: 100px;
- width: 100px;
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- margin: auto;
+.temp-max-min, .ground-sea-con, .wind-con {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin: 3rem auto;
+  border-radius: 5px;
 }
-.anim1,.anim2,.anim3,.anim4,.anim11,.anim21,.anim31,.anim41 {
-  width: 5px;
-  height: 100px;
-  background-color: black;
+.temp-max , .temp-min, .sea-lev, .ground-lev, .wind, .windSpeed {
+  width: 100%;
+  height: 100%;
+  background: var(--lightMode);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 15px;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
+  border-radius: 5px;
 }
-.anim1,.anim11 {
-  position: absolute;
-  animation: loader1 1s infinite;
-  -o-animation: loader1 1s infinite;
+.humidCon, .pressureCon {
+  width: 90%;
+  height: 160px;
+  background: var(--lightMode);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem auto;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
+  border-radius: 5px;
 }
-.anim2,.anim21 {
- position: absolute;
- height: 5px;
-  width: 100px;
-  -o-animation: loader2 1s infinite;
-  animation: loader2 1s infinite;
+.searchResult {
+  visibility: hidden;
 }
-.anim3,.anim31 {
- position: absolute;
- height: 5px;
-  width: 100px;
- bottom: 0;
- -o-animation: loader3 1s infinite;
- animation: loader3 1s infinite;
-}
-.anim4,.anim41 {
-  position: absolute;
- bottom: 100px;
-  right: 0;
-  animation: loader4 1s infinite;
-  -o-animation: loader4 1s infinite;
-}
-@keyframes loader1 {
-  from{
-   top:-100px;
-  }
-  to {
-   top:0px;
-  }
-}
-@keyframes loader2 {
-  from{
-   left:-100px;
-  }
-  to {
-   left:0px;
-  }
+.bodyTab img {
+  background: transparent;
 }
 
-@keyframes loader3 {
-  from{
-   right:-100px;
-  }
-  to {
-   right:0px;
-  }
-}
-@keyframes loader4 {
-  from{
-   bottom:-100px;
-  }
-  to {
-   bottom:0px;
-  }
-}
-@-o-keyframes loader1 {
-  from{
-   top:-100px;
-  }
-  to {
-   top:0px;
-  }
-}
-@-o-keyframes loader2 {
-  from{
-   left:-100px;
-  }
-  to {
-   left:0px;
-  }
-}
-
-@-o-keyframes loader3 {
-  from{
-   right:-100px;
-  }
-  to {
-   right:0px;
-  }
-}
-@-o-keyframes loader4 {
-  from{
-   bottom:-100px;
-  }
-  to {
-   bottom:0px;
-  }
-}
-.anim {
-  display: none;
-  position: fixed;
-}
 @media screen and (min-width:750px) {
   .radarBody, .mainBody,.searchBody1 {
-  background: linear-gradient(107.18deg, rgba(255, 255, 255, 0.5) 1.84%, rgba(255, 255, 255, 0.3) 100%);
-  width: 85vw;
+  background: var(--lightMode);
+  width: 88vw;
 }
 .humidText,.temp-maxText,.temp-minText,.groundText,.seaText,.pressureText,.speedText,.degText ,.searchHumid,.searchPressure,.searchMax,.searchGround,.searchSea,.searchMin,.searchDeg,.searchSpeed{
   font-size: 48px;
@@ -412,10 +369,10 @@ margin: 4px auto;
 }
 .timeText {
   text-align:  center;
-  font-size: 16px;
+  font-size: 20px;
 }
 .tempsText1,.temps1 {
-  font-size: 30px;
+  font-size: 44px;
 }
 .demoText1,.searchTemp1{
   font-size: 65px;
@@ -427,4 +384,33 @@ margin: 4px auto;
   font-size: 60px;
   padding: 0 28px;
 }
+.slides {
+  width: 90%;
+  height: 92%;
+  background: var(--lightMode);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 15px;
+  box-shadow: 1px 1px 0px var(--themeColour) ;
+  border-radius: 5px;
 }
+.slides-wrapper {
+  width: 100%;
+  height: 15rem;
+  background: white;
+  margin: 17px auto;
+  
+}
+
+.slides-con {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  overflow-x: hidden;
+  grid-column-gap: 9px;
+}
+}
+

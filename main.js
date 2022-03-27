@@ -48,17 +48,18 @@ let windSpeed = document.querySelector('.speedText')
 let windDeg = document.querySelector('.degText')
 class GetStat {
   async begin() {
-   let anim = document.querySelector(".anim111") 
-   anim.style.display= "block"
- let result = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=b95b1907acf270593672d8ce70a14afb`);
-
-    let data = await result.json();
+    
+ let result = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`,{
+mode: 'cors',
+credentials: 'include'
+});
+   console.log(result)
+    let data = await result.data;
+    console.log(data)
 if (data.message !== 0 || data.message.length < 5) {
   local.style.display = 'block'
   overall.style.pointerEvents ='none'
-  anim.style.display= "block"
 } else {
-  anim.style.display= "none"
     let array = [];
     for (var i = 0; i < 7; i++) {
       if (new Date(data.list[i].dt_txt).getDate() == new Date().getDate()) {
@@ -92,11 +93,11 @@ if (data.message !== 0 || data.message.length < 5) {
       //tempsCon.setAttribute('colspan',"3")
       nowWeather.appendChild(tempsCon); 
     let temps = document.createElement('div'); 
-   temps.classList.add('weath'); temps.innerHTML = `<p class='tempsText1'>${j1}°c</p><p class='tempsText2' > ${j2}°c</p>`; 
-   temps.style.height = 270 * (j1 / 100) + "px"
+   temps.classList.add('slides'); temps.innerHTML = `<div> <p class='tempsText1'>${j1}°c</p><p class='tempsText2' > Will feel like ${j2}°c</p> </div>`; 
+   //temps.style.height = 270 * (j1 / 100) + "px"
       tempsCon.appendChild(temps);
       let timeCon = document.createElement('p'); timeCon.classList.add('timeText');
-      let time = new Date(data.list[j].dt_txt).getHours(); timeCon.textContent = time > 12 ? (time - 12) + 'pm' : time + "am"; tempsCon.appendChild(timeCon);
+      let time = new Date(data.list[j].dt_txt).getHours(); timeCon.textContent = time > 12 ? (time - 12) + 'pm' : time + "am"; temps.appendChild(timeCon);
     }
 }
   }
@@ -106,7 +107,7 @@ if (data.message !== 0 || data.message.length < 5) {
 }
 
 function openBody(evt, bodyName) {
-  //parameter and function shouldn't be the same.. you can use quotes in html onclick="openBody(event,'main)'"
+
   
   let body, bodyTab, i;
   body = document.querySelectorAll('.body');
@@ -133,7 +134,7 @@ function radar(arrays, place1, place2, place3) {
     document.querySelector(place2).appendChild(col);
     let colDiv = document.createElement('div');
     colDiv.classList.add('weath');
-    colDiv.style.height = 270 * ((array1[k].temp) / 100) + "px";
+    colDiv.style.height = 450 * ((array1[k].temp) / 100) + "px";
     colDiv.innerHTML = `<p class='bigp'> ${array1[k].temp}°c </p>
   <p class='smallp'> ${arrays[k].feelslike}°c </p>`;
     col.appendChild(colDiv);
@@ -141,7 +142,7 @@ function radar(arrays, place1, place2, place3) {
     colP.classList.add('time')
     colP.innerHTML = `${arrays[k].wTime}`;
     col.appendChild(colP);
-    document.querySelector(place1).innerHTML = `<td colspan="5" style='text-align:center;'> <img src='http://openweathermap.org/img/wn/${arrays[0].icons}@2x.png'/>  <p>${arrays[0].iconDes}</p></td>
+    document.querySelector(place1).innerHTML = `<td colspan="5" style='text-align:center;'> <img src='http://openweathermap.org/img/wn/${arrays[0].icons}@2x.png'/>  <p class="img-text">${arrays[0].iconDes}</p></td>
      <td colspan="3" style='text-align:center;'><p class='bigTemp'>${arrays[0].temp}°c</p>
    <p class='smallTemp'>feels like ${arrays[0].feelslike}°c</p>
    </td>`;
@@ -158,8 +159,8 @@ let array5 = [];
 
 async function displayRadar() {
   let first = document.querySelector('.first');
-  let result = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=b95b1907acf270593672d8ce70a14afb`);
-  let data = await result.json();
+  let result = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`);
+  let data = await result.data;
   let datum = data.list;
 
 
@@ -232,6 +233,7 @@ async function displayRadar() {
 
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.names').textContent = localStorage.city;
+  
   let getStat = new GetStat;
   ye().then(getStat.begin())
   displayRadar();
@@ -242,18 +244,18 @@ let search = document.querySelector('#searchInput')
 search.onsearch = searchIt;
 submit.onclick = searchIt;
 async function searchIt() {
-  let anim = document.querySelector(".anim")
-  anim.style.display= "block"
-  let result = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value}&appid=b95b1907acf270593672d8ce70a14afb`);
+  let result = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${search.value}&appid=86a9be87dc74cd30aa8787255e46091c`,{
+mode: 'cors',
+credentials: 'include'
+});
 
-  let data = await result.json();
-
+  let data = await result.data;
+ document.querySelector('.searchResult').style.visibility = "visible"
   if (data.message !== 0 || data.message.length < 5) {
   search.value = '';
- anim.style.display= "block"
+ 
     
   } else {
-    anim.style.display= "none"
   arrayS.splice(0, arrayS.length);
   for (var i = 0; i < 7; i++) {
     if (new Date(data.list[i].dt_txt).getDate() == new Date().getDate()) {
@@ -280,20 +282,20 @@ async function searchIt() {
     tempsCon.classList.add('weathCon');
     tS.appendChild(tempsCon)
     let temps = document.createElement('div');
-    temps.classList.add('weath');
+    temps.classList.add('slides');
 
 
     temps.innerHTML = `<p class='temps1'>${j1}°c</p>
-  <p class='temps2' > ${j2}°c</p>`;
-    temps.style.height = 270 * (j1 / 100) + "px"
+  <p class='temps2' > Feels like${j2}°c</p>`;
+    //temps.style.height = 270 * (j1 / 100) + "px"
     tempsCon.appendChild(temps);
     let timeCon = document.createElement('p');
     timeCon.classList.add('timeText')
     let time = new Date(data.list[j].dt_txt).getHours();
     timeCon.textContent = time > 12 ? (time - 12) + 'pm' : time + "am";
-    tempsCon.appendChild(timeCon);
+    temps.appendChild(timeCon);
 
-    document.querySelector('.firstCol').innerHTML = `<div> <img src='http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png'/>  <p class='descr'>${data.list[0].weather[0].description}</p></div>
+    document.querySelector('.firstCol').innerHTML = `<div style="align-self: flex-end;"> <img src='http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png'/>  <p class='descr'>${data.list[0].weather[0].description}</p></div>
       <div>
 <p class='searchTemp1'>${(Number(data.list[0].main.temp) - 273).toFixed(0) + "°c"} </p> <p class='searchTemp2'>feels like ${(Number(data.list[0].main.feels_like) - 273).toFixed(0) + "°c"} </p>
   </div> `;
@@ -303,19 +305,19 @@ async function searchIt() {
  <div class="temp-min">
      <p class='searchMin'>${(Number(data.list[0].main.temp_min) - 273).toFixed(0) + "°c"}</p>
       <p>Min Temperature</p></div>`;
-document.querySelector('.fifthCol').innerHTML=
+document.querySelector('.sixthCol').innerHTML=
     `<div class="ground-lev">     <p class='searchGround'>${data.list[0].main.grnd_level + `<small>hpa</small>`}</p>
               <p>ground Level</p></div>
-  <div>            <p class='searchPressure'>${data.list[0].main.pressure + `<small>hpa</small>`}</p>
-            <p>pressure</p></div>
   <div class="sea-lev" >
      <p class='searchSea'>${data.list[0].main.sea_level + `<small>hpa</small>`}</p>
               <p>sea level</p>
   </div>`;
-    document.querySelector('.fourthCol').innerHTML = `<div colspan="8"> <p class='searchHumid'>${data.list[0].main.humidity + '%'} </p> <p> Humidity </p></div>`;
-    document.querySelector('.sixthCol').innerHTML = `<div class="wind" colspan="4"> <p class='searchDeg'> ${data.list[0].wind.deg + "°"}</p>
+    document.querySelector('.fourthCol').innerHTML = `<div> <p class='searchHumid'>${data.list[0].main.humidity + '%'} </p> <p> Humidity </p></div>`;
+    document.querySelector('.fifthCol').innerHTML = ` <div>  <p class='searchPressure'>${data.list[0].main.pressure + `<small>hpa</small>`}</p>
+            <p>pressure</p></div>`;
+    document.querySelector('.seventhCol').innerHTML = `<div class="wind"> <p class='searchDeg'> ${data.list[0].wind.deg + "°"}</p>
             <p>wind Degree</p></div>
-    <div class="windSpeed" colspan="4"><p class='searchSpeed'>${data.list[0].wind.speed + `<small>m/s</small>`}</p>
+    <div class="windSpeed" ><p class='searchSpeed'>${data.list[0].wind.speed + `<small>m/s</small>`}</p>
             <p> Wind speed</p></div>`;
 
 
