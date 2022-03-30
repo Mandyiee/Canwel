@@ -49,10 +49,13 @@ let windDeg = document.querySelector('.degText')
 class GetStat {
   async begin() {
     
- let result = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`);
-   console.log(result)
+ let result = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${localStorage.city}&appid=86a9be87dc74cd30aa8787255e46091c`,{
+mode: 'cors',
+credentials: 'include'
+});
+   
     let data = await result.data;
-    console.log(data)
+  
 if (data.message !== 0 || data.message.length < 5) {
   local.style.display = 'block'
   overall.style.pointerEvents ='none'
@@ -61,7 +64,6 @@ if (data.message !== 0 || data.message.length < 5) {
     for (var i = 0; i < 7; i++) {
       if (new Date(data.list[i].dt_txt).getDate() == new Date().getDate()) {
         array.push(data.list[i].dt_txt)
-
       }
     }
    
@@ -91,7 +93,6 @@ if (data.message !== 0 || data.message.length < 5) {
       nowWeather.appendChild(tempsCon); 
     let temps = document.createElement('div'); 
    temps.classList.add('slides'); temps.innerHTML = `<div> <p class='tempsText1'>${j1}°c</p><p class='tempsText2' > Will feel like ${j2}°c</p> </div>`; 
-   //temps.style.height = 270 * (j1 / 100) + "px"
       tempsCon.appendChild(temps);
       let timeCon = document.createElement('p'); timeCon.classList.add('timeText');
       let time = new Date(data.list[j].dt_txt).getHours(); timeCon.textContent = time > 12 ? (time - 12) + 'pm' : time + "am"; temps.appendChild(timeCon);
@@ -104,8 +105,6 @@ if (data.message !== 0 || data.message.length < 5) {
 }
 
 function openBody(evt, bodyName) {
-
-  
   let body, bodyTab, i;
   body = document.querySelectorAll('.body');
   let tabs = document.querySelectorAll('.tab-image');
